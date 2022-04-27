@@ -1,0 +1,7 @@
+# ninja log v5
+0	470	1651081367152331277	CMakeFiles/sentiment_analysis.dir/record.cpp.o	bf6c32b8d418fb6a
+0	565	1651081367248243501	CMakeFiles/sentiment_analysis.dir/database.cpp.o	969adaa2edd41e2
+0	748	1651081367428748129	CMakeFiles/sentiment_analysis.dir/main.cpp.o	1b86db099224eb49
+748	826	1651081367512005891	sentiment_analysis	fc05208815996eff
+1	660	1651081457540108944	CMakeFiles/sentiment_analysis.dir/main.cpp.o	1b86db099224eb49
+660	723	1651081457606489032	sentiment_analysis	fc05208815996eff
