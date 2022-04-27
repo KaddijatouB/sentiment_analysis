@@ -20,7 +20,7 @@ void Record::SetWord(string word) {
     _word = word;
 }
 void Record::SetCount(int count) {
-    _count = count + 1;
+    _count += count;
 }
 void Record::SetScoreTotal(int scoreTotal) {
     _scoreTotal = scoreTotal;

@@ -103,6 +103,8 @@ int main() {
 //          - the database capacity isn't  large enough to fit all words in the review file
 //
 bool BuildDatabase(const string& fileName, int capacity, Record records[], int& size) {
+    int numberWords, maxOccurrences,minOccurrences;
+    double maxScore, minScore;
     // to open the input file using ifstream
     ifstream in;
     in.open(fileName);
@@ -115,22 +117,23 @@ bool BuildDatabase(const string& fileName, int capacity, Record records[], int& 
     InitDatabase(capacity, records, size);
     // loop that continues until you hit the end of the file.
     while (!in.eof()) {
-        string line, strNumber;
-        int score;
+        string line;
+        int strNumber;
+
         (getline(in, line)); // reads the lines from the file
         istringstream inSS(line);
         string word;
         //extract scores from file
         inSS >> strNumber;// reads the numerical rating
+        int score = strNumber;
         // loop to add word in database from the file
-        int numberWords, maxOccurrences,minOccurrences;
-        double maxScore, minScore;
+
         while (inSS >> word) {
             AddWordToDatabase(capacity, records, size, word, score);
-            GetInfoAboutDatabase(records, size, numberWords, maxOccurrences, minOccurrences,maxScore, minScore);
         }
-    }
 
+    }
+    GetInfoAboutDatabase(records, size, numberWords, maxOccurrences, minOccurrences,maxScore, minScore);
     return true;
 }
 
@@ -145,18 +148,11 @@ double AnalyzeReview(const Record records[], int size, const string& review) {
     string word;
     int occurrences;
     double averageScore;
+
     //break the review entry into words
     istringstream inSS(review);
-    string reviewWord;
-    getline(inSS, reviewWord);
-    //loop to interact with user
-    while(!inSS.fail()) {
-        //iterate through the records array to analyzeReview
-        for (size_t i = 0; i < size; i++) {
-            if (records[i].GetWord() == reviewWord) {
-                FindWordInDatabase(records, size, word, occurrences, averageScore);
-            }
-        }
-        return averageScore;
-    }
+    word = review;
+
+    FindWordInDatabase(records, size, word, occurrences, averageScore);
+    return averageScore;
 }

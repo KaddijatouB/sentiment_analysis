@@ -5,19 +5,24 @@
 // Class: CSC 2430 Winter 2022
 // Author: **<Kaddijatou Baldeh>**
 
-#include "Database.h"
+#include "database.h"
 #include <string>
 #include <iostream>
 
 using std:: cout;
 using std:: endl;
+using std::cerr;
 
 // This is the value used to score a word not found in the database
 const double NEUTRAL = 2.0;
 
 
 void InitDatabase(int capacity, Record records[], int& size){
+
     size = 0;
+    capacity = CAPACITY;
+    records[capacity];
+
 }
 
 bool AddWordToDatabase(int capacity, Record records[], int& size, const string& word, int score) {
@@ -25,38 +30,42 @@ bool AddWordToDatabase(int capacity, Record records[], int& size, const string& 
     for (size_t i = 0; i < size; ++i) {
         // if the word is found in the record increases the word count
         if (records[i].GetWord() == word) {
-            records[i].SetCount(records[i].GetCount());
+            records[i].SetCount(1);
             return true;
         }
     }
     // iterate through the records database and check if it is at full capacity
-    if (size >= capacity) {
-        cout << "Error: the file is at full capacity.";
+    if (size != capacity) {
+        // adds word to database if it does not exist
+        records[size].SetWord(word);
+        records[size].SetCount(1);
+        records[size].SetScoreTotal(score);
+        size += 1;
+    } else{
+        cerr << "Error: the file is at full capacity.";
         return false;
     }
-    // adds word to database if it does not exist
-    records[size].SetWord(word);
-    records[size].SetCount(0);
-    records[size].SetScoreTotal(score);
-    size += 1;
 
     return true;
 }
 
 void FindWordInDatabase(const Record records[], int size,
                         const string& word, int& occurrences, double& averageScore){
-
-    for (int i; i < size; ++i){
+    double count = 0;
+    //loop to find occurrence of word and keep
+    for (int i = 0; i < size; ++i){
         if(records[i].GetWord() == word) {
             occurrences += records[i].GetCount(); // get total occurrences
-            averageScore = occurrences/size; // average calculations
-            break;
-        }
-        else{
-            occurrences = 0;
-            averageScore = NEUTRAL;
+            count += records[i].GetScoreTotal();
         }
     }
+    // average calculations
+    if(occurrences == 0){
+        averageScore = NEUTRAL;
+    }else{
+        averageScore = count/occurrences;
+    }
+
 }
 
 void GetInfoAboutDatabase(const Record records[], int size,
