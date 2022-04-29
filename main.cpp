@@ -4,7 +4,7 @@
 // sentiment analysis on movie reviews.
 //
 // Class: CSC 2430 Winter 2022
-// Author: Max Benson/ Kaddijatou Baldeh
+// Author: Kaddijatou Baldeh
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -17,16 +17,19 @@ using namespace std;
 bool BuildDatabase(const string& fileName, int capacity, Record records[], int& size);
 double AnalyzeReview(const Record records[], int size, const string& review);
 
-//
-// Main program:
-//
-// First prompts the user for a movie review file which is used to generate a database of
-// words, each word being stored by a count of its occurrences and the total score
-// associated with it.
-//
-// Then the main program will repeatedly prompt the user to enter the text of a review
-// at console.  When the user enters return the review text is scored using the word database
-// and a prediction for the rating is printed.
+/**
+Main program:
+
+First prompts the user for a movie review file which is used to generate a database of
+words, each word being stored by a count of its occurrences and the total score
+associated with it.
+
+Then the main program will repeatedly prompt the user to enter the text of a review
+at console.  When the user enters return the review text is scored using the word database
+and a prediction for the rating is printed.
+
+ */
+
 int main() {
     // Declaration of word database structure
     //      NOTE: Main program is only allowed to access
@@ -113,8 +116,7 @@ bool BuildDatabase(const string& fileName, int capacity, Record records[], int& 
         cerr << "Error: the file could not be opened.";
         return false;
     }
-    // Call InitDatabase to initialize the database
-    InitDatabase(capacity, records, size);
+
     // loop that continues until you hit the end of the file.
     while (!in.eof()) {
         string line;
@@ -126,12 +128,13 @@ bool BuildDatabase(const string& fileName, int capacity, Record records[], int& 
         //extract scores from file
         inSS >> strNumber;// reads the numerical rating
         int score = strNumber;
+        // Call InitDatabase to initialize the database
+        InitDatabase(capacity, records, size);
         // loop to add word in database from the file
-
-        while (inSS >> word) {
+        while(inSS >> word){
+            //add word ro record database
             AddWordToDatabase(capacity, records, size, word, score);
         }
-
     }
     GetInfoAboutDatabase(records, size, numberWords, maxOccurrences, minOccurrences,maxScore, minScore);
     return true;

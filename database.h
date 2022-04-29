@@ -1,9 +1,9 @@
-// Title: Lab 2 - Database.h
+// Title: Lab 2 - Database.cpp
 //
-// Purpose: Declares the functions that must be used for any attempt to access the word database.
+// Purpose: **<implementing functions to build a database for movie review files >
 //
 // Class: CSC 2430 Winter 2022
-// Author: Max Benson
+// Author: **<Kaddijatou Baldeh>**
 
 #ifndef DATABASE_H
 #define DATABASE_H

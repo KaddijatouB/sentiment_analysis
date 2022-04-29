@@ -1,9 +1,9 @@
-// Title: Lab 2 - Record.h
+// Title: Lab 2 - Database.cpp
 //
-// Purpose: Declares the Record class which stores information about one word in the database
+// Purpose: **<implementing functions to build a database for movie review files >
 //
 // Class: CSC 2430 Winter 2022
-// Author: Max Benson
+// Author: **<Kaddijatou Baldeh>**
 
 #ifndef RECORD_H
 #define RECORD_H
