@@ -80,3 +80,9 @@
 614	690	1651177994756125370	sentiment_analysis	fc05208815996eff
 1	658	1651209025482574569	CMakeFiles/sentiment_analysis.dir/database.cpp.o	969adaa2edd41e2
 658	740	1651209025568576506	sentiment_analysis	fc05208815996eff
+3	658	1651283110360893148	CMakeFiles/sentiment_analysis.dir/database.cpp.o	969adaa2edd41e2
+658	775	1651283110481015535	sentiment_analysis	fc05208815996eff
+2	7567	1651363336642175377	CMakeFiles/sentiment_analysis.dir/record.cpp.o	bf6c32b8d418fb6a
+2	7667	1651363336742637066	CMakeFiles/sentiment_analysis.dir/database.cpp.o	969adaa2edd41e2
+1	7829	1651363336903521748	CMakeFiles/sentiment_analysis.dir/main.cpp.o	1b86db099224eb49
+7829	8612	1651363337688902817	sentiment_analysis	fc05208815996eff
